@@ -36,7 +36,7 @@ public class Navigation {
 
                 if (destination != -1) {
                     /*该方向上有边，计算距离，再addEdge*/
-                    addEdge(source, destination, V.getDistance(source,destination));
+                    addEdge(source, destination, V.getDistance(source, destination));
                 }
             }
         }
@@ -140,3 +140,28 @@ public class Navigation {
     }
 
 }
+/*测试寻找两点之间的最短路径
+public class test {
+    public static void main(String[] args) {
+
+        BuildingsString V = new BuildingsString();
+        V.initBuildingString();//V是一个将文件中的地图信息以数组形式储存在数组中
+
+        Navigation Graph = new Navigation(132, V);//初始化图
+
+        Scanner cin = new Scanner(System.in);
+        System.out.println("请输入起点：");
+        int start = cin.nextInt();
+        System.out.println("请输入终点：");
+        int end = cin.nextInt();
+
+        System.out.println("两点之间最短路径为：");
+        int[] str = Graph.dijkstraWithPath(start, end);//寻找从start到end的最短路径，储存在str中
+
+        for (int i = 0; i < str.length; i++) {//输出最短路径
+            System.out.print(V.buildings[str[i]].Name + " ");
+        }
+        System.out.println("");
+    }
+}
+*/
