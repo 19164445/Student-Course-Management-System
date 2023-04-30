@@ -2,11 +2,38 @@ package Code;
 
 import java.util.*;
 
+
 public class Navigation {
+    /*内部类*/
+    private static class Edge {
+        int source;
+        int destination;
+        int weight;
+
+        Edge(int source, int destination, int weight) {
+            this.source = source;
+            this.destination = destination;
+            this.weight = weight;
+        }
+    }
+
+    private static class Node {//用于实现dijkstra()的一个类
+        int vertex;
+        int distance;
+
+        Node(int vertex, int distance) {
+            this.vertex = vertex;
+            this.distance = distance;
+        }
+    }
+
+
+
     private int verticesNum;
     private List<List<Edge>> adjacencyList;//储存图的边的邻接表
 
-    public Navigation(int verticesNum, BuildingsString V) {/*根据V，创建、初始化adjacencyList。*/
+    /*根据V，创建、初始化adjacencyList。*/
+    public Navigation(int verticesNum, BuildingsString V) {
         /*读入该行 结点的编号（即第一个数字），储存在source中*/
         this.verticesNum = verticesNum;
         this.adjacencyList = new ArrayList<>(verticesNum);
@@ -15,7 +42,6 @@ public class Navigation {
             this.adjacencyList.add(new ArrayList<>());
         }
         for (int i = 0; i < 132; i++) {//在V.buildings中读入132次数据，每行对应一个结点的邻接链表
-            int source = i;
             int destination = -1;
             for (int j = 0; j < 4; j++) {
                 /*读取该节点的上(j=0)下(j=1)左(j=2)右(j=3)的结点编号，储存在des中，若该方向上有边，则addEdge*/
@@ -36,20 +62,21 @@ public class Navigation {
 
                 if (destination != -1) {
                     /*该方向上有边，计算距离，再addEdge*/
-                    addEdge(source, destination, V.getDistance(source, destination));
+                    addEdge(i, destination, V.getDistance(i, destination));
                 }
             }
         }
 
     }
 
-
-    public void addEdge(int source, int destination, int weight) {//添加一条从source到destination，边权为weight的边。
+    /*添加一条从source到destination，边权为weight的边（有向边。*/
+    public void addEdge(int source, int destination, int weight) {
         Edge edge = new Edge(source, destination, weight);
         this.adjacencyList.get(source).add(edge);
 
     }
 
+    /*寻找source和destinatino之间的最短路径，返回值为一个数组，数组中储存的是最短路径经过的节点*/
     public int[] dijkstraWithPath(int source, int destination) {
         // 初始化距离数组和已访问节点集合
         int[] distances = new int[verticesNum];
@@ -117,27 +144,6 @@ public class Navigation {
         return result;
     }
 
-    private static class Edge {
-        int source;
-        int destination;
-        int weight;
-
-        Edge(int source, int destination, int weight) {
-            this.source = source;
-            this.destination = destination;
-            this.weight = weight;
-        }
-    }
-
-    private static class Node {//用于实现dijkstra()的一个类
-        int vertex;
-        int distance;
-
-        Node(int vertex, int distance) {
-            this.vertex = vertex;
-            this.distance = distance;
-        }
-    }
 
 }
 /*测试寻找两点之间的最短路径
