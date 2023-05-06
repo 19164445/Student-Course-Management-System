@@ -144,6 +144,56 @@ public class Navigation {
         return result;
     }
 
+    public int[] findPath(int source, int[] des) {
+        List<Integer> path = new ArrayList<>();
+        path.add(source);
+
+        // 将des[]中的顶点加入未访问集合
+        Set<Integer> unvisited = new HashSet<>();
+        for (int vertex : des) {
+            unvisited.add(vertex);
+        }
+
+        while (!unvisited.isEmpty()) {
+            int nearestVertex = -1;
+            int nearestDistance = Integer.MAX_VALUE;
+
+            // 在当前路径中的每个顶点和未访问集合中的顶点之间寻找最短距离
+            for (int i = 0; i < path.size(); i++) {
+                int currentVertex = path.get(i);
+                for (int unvisitedVertex : unvisited) {
+                    int[] shortestPath = dijkstraWithPath(currentVertex, unvisitedVertex);
+                    int pathLength = shortestPath.length == 0 ? Integer.MAX_VALUE : shortestPath.length - 1;
+                    if (pathLength < nearestDistance) {
+                        nearestVertex = unvisitedVertex;
+                        nearestDistance = pathLength;
+                    }
+                }
+            }
+
+            // 将距离最近的顶点插入路径，并从未访问集合中移除
+            if (nearestVertex != -1) {
+                unvisited.remove(nearestVertex);
+                int[] insertionPath = dijkstraWithPath(path.get(path.size() - 1), nearestVertex);
+                for (int i = 1; i < insertionPath.length; i++) {
+                    path.add(insertionPath[i]);
+                }
+            }
+        }
+
+        // 将路径从最后一个顶点连接回源顶点
+        int[] returnPath = dijkstraWithPath(path.get(path.size() - 1), source);
+        for (int i = 1; i < returnPath.length; i++) {
+            path.add(returnPath[i]);
+        }
+
+        // 将路径转换为int数组并返回
+        int[] result = new int[path.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = path.get(i);
+        }
+        return result;
+    }
 
 }
 /*测试寻找两点之间的最短路径
