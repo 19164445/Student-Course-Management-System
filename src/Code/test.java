@@ -4,21 +4,23 @@ import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
-        /*//计时功能测试
+        //计时功能测试
         SimulatedTimeSystem T = new SimulatedTimeSystem();
-        T.setRate(20);
+        T.setRate(100);//设定速率为原来的20倍
 
-        Time alarmtime1 = new Time(0, 2, 10);*//*第0周，周2，10点*//*
-        T.alarmQueue.addAlarm(alarmtime1, "快点动手数据结构课设");
-
-        Time alarmtime2 = new Time(0, 5, 14);*//*第0周，周5，14点*//*
-        T.alarmQueue.addAlarm(alarmtime2, "快点动手数电课设");
-
-        Time alarmtime3 = new Time(1, 3, 16);*//*第1周，周3，16点*//*
+        Time alarmtime3 = new Time(2, 3, 16);//第2周，周3，16点
         T.alarmQueue.addAlarm(alarmtime3, "快点动手计网课设");
 
+        Time alarmtime1 = new Time(1, 2, 10);//第1周，周2，10点
+        T.alarmQueue.addAlarm(alarmtime1, "快点动手数据结构课设");
+
+        Time alarmtime2 = new Time(1, 5, 14);//第1周，周5，14点
+        T.alarmQueue.addAlarm(alarmtime2, "快点动手数电课设");
+
+
+
         T.start();
-        */
+
 
         /*//Navigation点对点寻找最短路径功能测试
         BuildingsString V = new BuildingsString();
@@ -38,10 +40,10 @@ public class test {
         for (int i = 0; i < str.length; i++) {//输出最短路径
             System.out.print(V.buildings[str[i]].Name + " ");
         }
-        System.out.println("");
-        */
+        System.out.println("");*/
 
-        //Navigation多路寻找最短路径功能测试
+
+        /*//Navigation多路寻找最短路径功能测试
         BuildingsString V = new BuildingsString();
         V.initBuildingString();//V是一个将文件中的地图信息以数组形式储存在数组中
 
@@ -62,6 +64,6 @@ public class test {
         for (int i = 0; i < str.length; i++) {//输出最短路径
             System.out.print(V.buildings[str[i]].Name + "\n");
         }
-        System.out.println("");
+        System.out.println("");*/
     }
 }

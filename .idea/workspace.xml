@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad233eeb-d42d-4a62-b652-0cbb9eb2d307" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Code/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Code/BuildingsString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/学生课程管理系统.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Student-Course-Management-System.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/AlarmQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/AlarmQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/BuildingsString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/BuildingsString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Navigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Navigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Code/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Code/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +82,8 @@
       <updated>1681365937384</updated>
       <workItem from="1681365939820" duration="586000" />
       <workItem from="1681366589044" duration="1069000" />
+      <workItem from="1684374778083" duration="1987000" />
+      <workItem from="1684410169760" duration="4823000" />
     </task>
     <servers />
   </component>
@@ -99,5 +100,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

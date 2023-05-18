@@ -77,7 +77,7 @@ public class Navigation {
     }
 
     /*寻找source和destinatino之间的最短路径，返回值为一个数组，数组中储存的是最短路径经过的节点*/
-    public int[] dijkstraWithPath(int source, int destination) {
+    public int[] singledestination(int source, int destination) {
         // 初始化距离数组和已访问节点集合
         int[] distances = new int[verticesNum];
         Arrays.fill(distances, Integer.MAX_VALUE);
@@ -144,7 +144,7 @@ public class Navigation {
         return result;
     }
 
-    public int[] findPath(int source, int[] des) {
+    public int[] multipledestination(int source, int[] des) {
         List<Integer> path = new ArrayList<>();
         path.add(source);
 
@@ -162,7 +162,7 @@ public class Navigation {
             for (int i = 0; i < path.size(); i++) {
                 int currentVertex = path.get(i);
                 for (int unvisitedVertex : unvisited) {
-                    int[] shortestPath = dijkstraWithPath(currentVertex, unvisitedVertex);
+                    int[] shortestPath = singledestination(currentVertex, unvisitedVertex);
                     int pathLength = shortestPath.length == 0 ? Integer.MAX_VALUE : shortestPath.length - 1;
                     if (pathLength < nearestDistance) {
                         nearestVertex = unvisitedVertex;
@@ -174,7 +174,7 @@ public class Navigation {
             // 将距离最近的顶点插入路径，并从未访问集合中移除
             if (nearestVertex != -1) {
                 unvisited.remove(nearestVertex);
-                int[] insertionPath = dijkstraWithPath(path.get(path.size() - 1), nearestVertex);
+                int[] insertionPath = singledestination(path.get(path.size() - 1), nearestVertex);
                 for (int i = 1; i < insertionPath.length; i++) {
                     path.add(insertionPath[i]);
                 }
@@ -182,7 +182,7 @@ public class Navigation {
         }
 
         // 将路径从最后一个顶点连接回源顶点
-        int[] returnPath = dijkstraWithPath(path.get(path.size() - 1), source);
+        int[] returnPath = singledestination(path.get(path.size() - 1), source);
         for (int i = 1; i < returnPath.length; i++) {
             path.add(returnPath[i]);
         }

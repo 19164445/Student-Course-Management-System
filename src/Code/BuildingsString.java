@@ -8,6 +8,7 @@ import java.io.IOException;
 public class BuildingsString {
     Building[] buildings;
 
+    //从文件初始化该数组
     public void initBuildingString() {
         this.buildings = new Building[132];// 一共132个顶点
         //读取Map.txt文件
@@ -42,6 +43,23 @@ public class BuildingsString {
         }
     }
 
+    //根据节点名称获取编号
+    public int seqOfBuilding(String name){
+        int flag=0;//没找到flag设为0，找到了设为1
+        for (int i = 0; i < buildings.length; i++) {
+            if(buildings[i].Name.equals(name)){
+                flag=1;
+                return i;
+            }
+        }
+        if(flag==0){
+            System.out.println("没有该地点");
+
+        }
+        return -1;
+    }
+
+    //获取两点之间距离
     public int getDistance(int start, int end) {//寻找两点之间逻辑位置的距离
         if (buildings[start].LogicX == buildings[end].LogicX) {//X坐标相同，取Y差值
             return Math.abs(buildings[start].LogicY - buildings[end].LogicY);

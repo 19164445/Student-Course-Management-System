@@ -1,14 +1,14 @@
 package Code;
 
 public class Time implements Comparable<Time> {
-    private int week;
+    private int week;//第几周
     private int dayOfWeek;
     private int hour;
 
     /*构造方法*/
     public Time() {
-        this.week = 0;
-        this.dayOfWeek = 0;
+        this.week = 1;
+        this.dayOfWeek = 1;
         this.hour = 0;
     }
 
